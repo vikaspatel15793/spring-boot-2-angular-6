@@ -22,22 +22,5 @@ export const navItems: INavData[] = [
         icon: 'icon-add'
       }
     ]
-  },
-  {
-    name: 'NFR Category',
-    url: '/nfr-category',
-    icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'View',
-        url: '/nfr-category',
-        icon: 'icon-view'
-      },
-      {
-        name: 'Add',
-        url: '/nfr-category/new',
-        icon: 'icon-add'
-      }
-    ]
-  },
+  }
 ];

@@ -1,1 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+.bg-magenta{
+    background-color: rgb(226, 0 , 116)
+}

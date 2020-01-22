@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-header">
+        <strong>Add NFR Category</strong> Form
+    </div>
+
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+        <div class="card-body">
+            <div class="form-group row" [hidden]="!nfrCategory.id">
+                <label class="col-md-3 col-form-label" for="hf-id">Id</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="nfrCategory.id" readonly />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="nfrCategory">NFR Category</label>
+                <div class="col-md-9">
+                    <input type="text" id="nfrCategory" name="nfrCategory" class="form-control"
+                        placeholder="Enter NFR Category.." autocomplete="nfrCategory" [(ngModel)]="nfrCategory.nfrCategory">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="nfrCategorySummary">NFR Category Summary</label>
+                <div class="col-md-9">
+                    <input type="text" id="nfrCategorySummary" name="nfrCategorySummary" class="form-control"
+                        placeholder="Enter NFR Category Summary.." autocomplete="nfrCategorySummary"
+                        [(ngModel)]="nfrCategory.nfrCategorySummary">
+                </div>
+            </div>
+
+            <!-- ==== -->
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="guidance">Guidance</label>
+                <div class="col-md-9">
+                    <input type="text" id="guidance" name="guidance" class="form-control"
+                        placeholder="Enter Guidance.." autocomplete="guidance"
+                        [(ngModel)]="nfrCategory.guidance">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="simpleUserStory">Simple User Story</label>
+                <div class="col-md-9">
+                    <input type="text" id="simpleUserStory" name="simpleUserStory" class="form-control"
+                        placeholder="Enter Simple User Story.." autocomplete="simpleUserStory"
+                        [(ngModel)]="nfrCategory.simpleUserStory">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="simpleAcceptanceCriteria">Simple Acceptance Criteria</label>
+                <div class="col-md-9">
+                    <input type="text" id="simpleAcceptanceCriteria" name="simpleAcceptanceCriteria" class="form-control"
+                        placeholder="Enter Simple Acceptance Criteria.." autocomplete="simpleAcceptanceCriteria"
+                        [(ngModel)]="nfrCategory.simpleAcceptanceCriteria">
+                </div>
+            </div>
+
+            
+
+        </div>
+        <div class="card-footer">
+
+            <button type="submit" class="btn btn-sm btn-primary" [disabled]="editForm.form.invalid || isSaving"><i
+                    class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="reset" class="btn btn-sm btn-danger" *ngIf="!nfrCategory.id" (click)="reset()"><i class="fa fa-ban"></i>
+                Reset</button>
+                <button type="reset" class="btn btn-sm btn-danger" *ngIf="nfrCategory && nfrCategory.id" (click)="previousState()"><i class="fa fa-ban"></i>
+                    Back</button>     
+        </div>
+    </form>
+
+</div>

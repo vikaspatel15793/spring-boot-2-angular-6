@@ -1,0 +1,14 @@
+// Here you can add other styles
+@import "../node_modules/@coreui/coreui/scss/coreui";
+
+.app-header .navbar-toggler:focus{
+    color: white !important;
+}
+
+.app-header .navbar-toggler:active{
+    color: white !important;
+}
+
+.app-header button:focus{
+    outline: none;
+}

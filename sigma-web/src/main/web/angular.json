@@ -7,8 +7,6 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -16,25 +14,31 @@
             "outputPath": "dist/np-app",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/@coreui/icons/css/coreui-icons.css",
+              "node_modules/flag-icon-css/css/flag-icon.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/simple-line-icons/css/simple-line-icons.css",
+              "src/scss/style.scss",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": ["./node_modules"]
+            },
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -43,7 +47,13 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -68,16 +78,24 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.css"
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.min.js"
             ],
-            "scripts": [],
+            "styles": [
+              "node_modules/flag-icon-css/css/flag-icon.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/simple-line-icons/css/simple-line-icons.css",
+              "src/scss/style.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["./node_modules"]
+            },
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/favicon.ico"
             ]
           }
         },
@@ -96,25 +114,23 @@
       }
     },
     "np-app-e2e": {
-      "root": "e2e/",
+      "root": "",
+      "sourceRoot": "",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "np-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "np-app:serve:production"
-            }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
@@ -123,5 +139,14 @@
       }
     }
   },
-  "defaultProject": "np-app"
+  "defaultProject": "np-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  }
 }

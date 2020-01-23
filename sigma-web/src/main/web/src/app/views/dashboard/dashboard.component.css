@@ -8,3 +8,12 @@
 .text-magenta{
     color: rgb(226, 0 , 116)
 }
+
+.app-box{
+    height: 140px;
+    cursor: pointer;
+}
+
+.bg-magenta:hover{
+    background-color: rgb(317, 0 , 116)
+}

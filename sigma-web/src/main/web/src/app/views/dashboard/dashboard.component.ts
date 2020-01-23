@@ -20,13 +20,12 @@ export class DashboardComponent implements OnInit {
 
   constructor(
   ) {
-
   }
 
-
-
   ngOnInit() {
+  }
 
-
+  goToShield() {
+    document.location.href = ('http://localhost:8091/');
   }
 }

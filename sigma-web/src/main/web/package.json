@@ -58,7 +58,7 @@
     "ts-helpers": "^1.1.2",
     "tsickle": "^0.37.0",
     "tslib": "^1.10.0",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "web-animations-js": "^2.3.2",
     "zone.js": "^0.10.2"
   },
